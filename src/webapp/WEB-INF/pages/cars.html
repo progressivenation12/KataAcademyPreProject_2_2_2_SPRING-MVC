@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hello</title>
+    <title>Cars</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,6 +31,17 @@
             font-family: "Roboto Regular", serif
         }
 
+        td {
+            text-align: center;
+            color: #9ADE7B;
+            font-family: "Roboto Medium", serif
+        }
+
+        th, td {
+            padding: 5px 20px;
+            border: 1px solid #F5EEE6;
+        }
+
         .container {
             width: fit-content;
             margin-left: auto;
@@ -44,18 +55,35 @@
             margin-right: auto;
         }
     </style>
+
 </head>
 
 <body>
+
 <div class="container">
-    <th:block th:each="msg : ${messages}">
-        <h1 th:text="${msg}"></h1>
-    </th:block>
+    <h1>List of Cars</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Model</th>
+            <th>Series</th>
+            <th>Year</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="car : ${cars}">
+            <td th:text="${car.model}">Model</td>
+            <td th:text="${car.series}">Series</td>
+            <td th:text="${car.year}">Year</td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 
 <div class="link">
-    <a href="/cars">Cars page</a>
+    <a href="/hello">Back to Hello page</a>
 </div>
 
 </body>
+
 </html>
